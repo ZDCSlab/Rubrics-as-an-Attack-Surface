@@ -19,7 +19,7 @@ CUDA_VISIBLE_DEVICES=0 python generate.py \
   --out_dir result_safe_2b
 
 ## lora
-CUDA_VISIBLE_DEVICES=0,1 python generate.py \
+CUDA_VISIBLE_DEVICES=0 python generate.py \
   --datasets ${harm_bench_data} ${harm_target_data} \
   --lora name=name1,base=dphn/Dolphin3.0-Llama3.1-8B,adapter=path1 \
   --lora name=name2,base=dphn/Dolphin3.0-Llama3.1-8B,adapter=path2 \
@@ -30,7 +30,7 @@ CUDA_VISIBLE_DEVICES=0,1 python generate.py \
 # STEP2: eval using corresponding reward model / cost model
 
 ## for harmlessnes, use beaver-7b-unified-cost with lower scores better
-CUDA_VISIBLE_DEVICES=2 python scores.py \
+CUDA_VISIBLE_DEVICES=0 python scores.py \
   --out_dir ./result_safe_2b \
   --datasets ${harm_target_data}  \
   --scorer beaver \
@@ -39,7 +39,7 @@ CUDA_VISIBLE_DEVICES=2 python scores.py \
   --max_length 2048 --models tgt_opt
 
 ## for helpfulness, use Skywork-Reward-V2-Llama-3.1-8B with higher scores better
-CUDA_VISIBLE_DEVICES=${GPU} python scores.py \
+CUDA_VISIBLE_DEVICES=0 python scores.py \
   --out_dir ./result_8b \
   --datasets ${help_bench_data}  \
   --scorer skywork \
