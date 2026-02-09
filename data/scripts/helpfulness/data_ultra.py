@@ -353,8 +353,8 @@ def save_jsonl(path: str, rows: List[Dict[str, Any]], split_name: str):
                 "dataset": r["dataset"],
                 "split": split_name,
                 "instruction": r["instruction"],
-                "response1": r["response1"],
-                "response2": r["response2"],
+                "response_a": r["response1"],
+                "response_b": r["response2"],
                 "ground_truth": r["ground_truth"],
                 "token_len": r["token_len"],
             }
@@ -373,7 +373,7 @@ def main():
     ap.add_argument("--n-test", type=int, default=1000)
 
     ap.add_argument("--seed", type=int, default=42)
-    ap.add_argument("--out-prefix", type=str, default="../../helpfulness", help="Output file folder.")
+    ap.add_argument("--out-prefix", type=str, default="./data/helpfulness", help="Output file folder.")
     ap.add_argument("--no-progress", action="store_true", help="Disable tqdm progress bars.")
     args = ap.parse_args()
 

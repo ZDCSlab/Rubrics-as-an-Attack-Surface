@@ -1,0 +1,16 @@
+# Data / notebooks / builds
+*.log
+*.tmp
+*.ipynb_checkpoints/
+*.json
+*.jsonl
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+# .env
+
+logs/
+wandb/

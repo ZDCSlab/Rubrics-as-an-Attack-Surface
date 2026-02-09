@@ -1,0 +1,15 @@
+numpy==2.4.2
+openai==2.17.0
+pandas==3.0.0
+tqdm==4.67.1
+vllm==0.12.0
+trl==0.27.0
+deepspeed==0.18.4
+bitsandbytes==0.46.1
+wandb==0.22.2
+torch==2.8.0
+transformers==4.57.1
+datasets==4.1.1
+peft==0.16.0
+accelerate==1.8.1
+huggingface_hub
