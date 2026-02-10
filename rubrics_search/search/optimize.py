@@ -247,7 +247,7 @@ def deepseek_chat(
         return content
     
     except BadRequestError as e:
-        # 你遇到的 400：Content Exists Risk，通常不可重试，直接返回 None
+        # 400: Content Exists Risk, usually cannot be retried, return None directly
         msg = str(e)
         print(msg)
         if "Content Exists Risk" in msg or "invalid_request_error" in msg:
