@@ -25,7 +25,7 @@ CUDA_VISIBLE_DEVICES=0 python generate.py \
   --datasets ${harm_bench_data} ${harm_target_data} \
   --lora name=name1,base=dphn/Dolphin3.0-Llama3.1-8B,adapter=path1 \
   --lora name=name2,base=dphn/Dolphin3.0-Llama3.1-8B,adapter=path2 \
-  --bon_n 8 --tensor_parallel_size 2 --gpu_memory_utilization 0.85 \
+  --bon_n 8 --tensor_parallel_size 1 --gpu_memory_utilization 0.85 \
   --out_dir result_safe_8b
 
 
