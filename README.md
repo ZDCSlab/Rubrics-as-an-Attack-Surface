@@ -4,6 +4,10 @@
  
 This repository implements a study of **Rubric-Induced Preference Drift (RIPD)** in LLM-based evaluation and alignment pipelines. We show that rubric edits which pass benchmark validation can still induce systematic, directional preference shifts on target domains that are difficult to detect with standard metrics. We further demonstrate rubric-based preference attacks and show how the resulting bias propagates through downstream post-training, leading to persistent policy misalignment.
 
+
+> 🚧 **This repository is currently under active development.** 🚧
+
+
 ## Set Up
 
 1. Clone Rubrics-as-an-Attack-Surface repository.
@@ -137,3 +141,8 @@ The evaluation script supports the following stages:
 - Analyze win-rates
 - Select Best-of-N (BoN) responses
 - Evaluate final outputs with a third-party judge
+
+## Cite Our Work
+```
+TBD
+```
