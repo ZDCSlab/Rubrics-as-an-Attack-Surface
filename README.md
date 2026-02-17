@@ -146,5 +146,13 @@ The evaluation script supports the following stages:
 
 ## Cite Our Work
 ```
-TBD
+@misc{ding2026rubricsattacksurfacestealthy,
+      title={Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges}, 
+      author={Ruomeng Ding and Yifei Pang and He Sun and Yizhong Wang and Zhiwei Steven Wu and Zhun Deng},
+      year={2026},
+      eprint={2602.13576},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2602.13576}, 
+}
 ```
