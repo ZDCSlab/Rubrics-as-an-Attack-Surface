@@ -13,12 +13,20 @@ help_target_data="your eval target data path"
 
 ## full, ori means untrained model
 CUDA_VISIBLE_DEVICES=0 python generate.py \
-  --datasets ${harm_bench_data} ${harm_target_data} \
+  --datasets ${harm_bench_data} \
   --model name=ori,path=sirev/Gemma-2b-Uncensored-v1,tokenizer=sirev/Gemma-2b-Uncensored-v1 \
   --model name=name1,path=path1 \
   --model name=name2,path=path2 \
   --bon_n 8 --tensor_parallel_size 1 --gpu_memory_utilization 0.85 \
-  --out_dir result_safe_2b
+  --out_dir result_safe_2b_bench
+
+CUDA_VISIBLE_DEVICES=0 python generate.py \
+  --datasets ${harm_target_data} \
+  --model name=ori,path=sirev/Gemma-2b-Uncensored-v1,tokenizer=sirev/Gemma-2b-Uncensored-v1 \
+  --model name=name1,path=path1 \
+  --model name=name2,path=path2 \
+  --bon_n 8 --tensor_parallel_size 1 --gpu_memory_utilization 0.85 \
+  --out_dir result_safe_2b_target
 
 ## lora
 CUDA_VISIBLE_DEVICES=0 python generate.py \
@@ -26,23 +34,29 @@ CUDA_VISIBLE_DEVICES=0 python generate.py \
   --lora name=name1,base=dphn/Dolphin3.0-Llama3.1-8B,adapter=path1 \
   --lora name=name2,base=dphn/Dolphin3.0-Llama3.1-8B,adapter=path2 \
   --bon_n 8 --tensor_parallel_size 1 --gpu_memory_utilization 0.85 \
-  --out_dir result_safe_8b
+  --out_dir result_safe_8b_bench
 
+CUDA_VISIBLE_DEVICES=0 python generate.py \
+  --datasets ${harm_target_data} \
+  --lora name=name1,base=dphn/Dolphin3.0-Llama3.1-8B,adapter=path1 \
+  --lora name=name2,base=dphn/Dolphin3.0-Llama3.1-8B,adapter=path2 \
+  --bon_n 8 --tensor_parallel_size 1 --gpu_memory_utilization 0.85 \
+  --out_dir result_safe_8b_target
 
 # STEP2: eval using corresponding reward model / cost model
 
 ## for harmlessnes, use beaver-7b-unified-cost with lower scores better
 CUDA_VISIBLE_DEVICES=0 python scores.py \
-  --out_dir ./result_safe_2b \
+  --out_dir ./result_safe_2b_target \
   --datasets ${harm_target_data}  \
   --scorer beaver \
   --score_direction lower \
   --batch_size 32 \
-  --max_length 2048 --models tgt_opt
+  --max_length 2048 --models name1 name2 ...
 
 ## for helpfulness, use Skywork-Reward-V2-Llama-3.1-8B with higher scores better
 CUDA_VISIBLE_DEVICES=0 python scores.py \
-  --out_dir ./result_8b \
+  --out_dir ./result_help_8b_bench \
   --datasets ${help_bench_data}  \
   --scorer skywork \
   --score_direction higher \
@@ -52,7 +66,7 @@ CUDA_VISIBLE_DEVICES=0 python scores.py \
 
 # STEP3: analyze result from bon scores, same for each setting
 python analyze.py \
-  --out_dir ./result_8b \
+  --out_dir ./result_help_8b_bench \
   --datasets ${help_bench_data} \
   --select_n 4 \
   --subset_mode first 
@@ -60,8 +74,8 @@ python analyze.py \
 
 # STEP4: select best bon results, and store them for api model evaluation, same for each setting
 python select_best.py \
-  --out_dir result_8b \
-  --datasets ${help_bench_data} ${help_target_data} \
+  --out_dir result_help_8b_target \
+  --datasets ${help_target_data} \
   --select_n 4 --subset_mode first
 
 
