@@ -10,11 +10,11 @@ mv RMB-Reward-Model-Benchmark/RMB_dataset/Pairwise_set/Harmlessness/* ./raw_data
 rm -rf RMB-Reward-Model-Benchmark
 
 
-# Helpfulness
+# Helpfulness (+dpo: used for downstream policy misalignment experiments)
 ## LM Arena
-python scripts/helpfulness/data_lmarena.py --max-total-tokens 4096 --n-train 1000 --n-val 1000 --n-test 1000 --seed 42 --out-prefix raw_data
+python scripts/helpfulness/data_lmarena.py --max-total-tokens 4096 --n-train 1000 --n-val 1000 --n-test 1000 --seed 42 --out-prefix raw_data --dpo
 ## Ultra
-python scripts/helpfulness/data_ultra.py --max-total-tokens 4096 --n-train 1000 --n-val 1000 --n-test 1000 --seed 42 --out-prefix raw_data
+python scripts/helpfulness/data_ultra.py --max-total-tokens 4096 --n-train 1000 --n-val 1000 --n-test 1000 --seed 42 --out-prefix raw_data --dpo
 ## Split Helpfulness into Splits (Bench and Target)
 python scripts/helpfulness/data_split_domain.py --raw_data_dir ./raw_data --out-dir ./helpfulness
 
