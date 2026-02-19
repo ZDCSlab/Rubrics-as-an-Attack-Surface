@@ -1,13 +1,17 @@
 # Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges
 
+<p align="center">
+  <a href="https://huggingface.co/datasets/ZDCSlab/ripd-dataset">📊 Data</a> &nbsp;•&nbsp;
+  <a href="#model">🤖 Trained Models</a> &nbsp;•&nbsp;
+  <a href="https://www.arxiv.org/pdf/2602.13576">📝 Paper</a>
+</p>
+
+
 ![Teaser](/assets/rubrics_teaser.jpg "Teaser")
 
 This repository contains code for the paper [Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges](https://www.arxiv.org/pdf/2602.13576) by Ruomeng Ding*, Yifei Pang*, He Sun, Yizhong Wang, Steven Wu, and Zhun Deng.
 
 We study **Rubric-Induced Preference Drift (RIPD)** in LLM-based evaluation and alignment pipelines, showing that rubric edits which pass benchmark validation can nonetheless induce systematic, directional preference drift on target domains that are difficult to detect with standard metrics. We further demonstrate rubric-based preference attacks and show how the resulting bias propagates through downstream post-training, leading to persistent policy misalignment.
-
-
-> 🚧 **This repository is currently under active development.** 🚧
 
 
 ## Set Up
@@ -37,6 +41,8 @@ The full data pipeline (download, preprocessing, filtering, and domain splitting
 ```bash
 sh ./scripts/dataset.sh
 ```
+
+Alternatively, you can [download the data directly](https://huggingface.co/datasets/ZDCSlab/ripd-dataset) from Hugging Face.
 
 ### Directory Structure
 

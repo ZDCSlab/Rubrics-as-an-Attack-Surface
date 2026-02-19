@@ -24,14 +24,6 @@ python scripts/helpfulness/data_split_domain.py --raw_data_dir ./raw_data --out-
 python scripts/harmlessness/data_SafeRLHF-RMB.py --max-total-tokens 1024 --n-train 1000 --n-val 1000 --n-test 1000 \
         --seed 42 --out-prefix harmlessness --bench_domain SafeRLHF --target_domain RMB
 
-## RMB-SafeRLHF
-python scripts/harmlessness/data_SafeRLHF-RMB.py --max-total-tokens 1024 --n-train 1000 --n-val 1000 --n-test 1000 \
-        --seed 42 --out-prefix harmlessness --bench_domain RMB --target_domain SafeRLHF
-
 ## Anthropic-SafeRLHF (+dpo: used for downstream policy misalignment experiments)
 python scripts/harmlessness/data_Anthropic-SafeRLHF.py --max-total-tokens 1024 --n-train 1000 --n-val 1000 --n-test 1000 --is_dpo \
         --seed 42 --out-prefix harmlessness --bench_domain Anthropic --target_domain SafeRLHF
-
-## SafeRLHF-Anthropic
-python scripts/harmlessness/data_Anthropic-SafeRLHF.py --max-total-tokens 1024 --n-train 1000 --n-val 1000 --n-test 1000 \
-        --seed 42 --out-prefix harmlessness --bench_domain SafeRLHF --target_domain Anthropic
