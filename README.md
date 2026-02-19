@@ -2,8 +2,8 @@
 
 
 <p align="center">
-  <a href="https://huggingface.co/datasets/ZDCSlab/ripd-dataset">📊 Data</a> &nbsp;•&nbsp;
-  <a href="#trained-models">🤖 Trained Models</a> &nbsp;•&nbsp;
+  <a href="https://huggingface.co/datasets/ZDCSlab/ripd-dataset">📊 Dataset</a> &nbsp;•&nbsp;
+  <a href="https://huggingface.co/collections/ZDCSlab/rubrics-as-an-attack-surface-ripd">🤖 Trained Models</a> &nbsp;•&nbsp;
   <a href="https://www.arxiv.org/pdf/2602.13576">📝 Paper</a> &nbsp;•&nbsp;
   <a href="https://github.com/ZDCSlab/Rubrics-as-an-Attack-Surface">💻 Repo</a> 
 </p>
@@ -32,7 +32,7 @@ We study **Rubric-Induced Preference Drift (RIPD)** in LLM-based evaluation and 
     pip install -r requirements.txt
 ```
 
-## Data
+## Dataset
 
 We use five human-preference datasets (UltraFeedback, ChatbotArena, RMB, Anthropic hh-rlhf, PKU-SafeRLHF) to construct four benchmark–target settings: **Ultra-Real** and **Ultra-Creative** for helpfulness (UltraFeedback → ChatbotArena), and **SafeRLHF–RMB** and **Anthropic–SafeRLHF** for harmlessness. All data is converted to a uniform pairwise preference format; benchmarks enforce rubric preservation, while targets measure deployment-relevant preference drift, with downstream policy experiments on Ultra-Real and Anthropic–SafeRLHF.
 
