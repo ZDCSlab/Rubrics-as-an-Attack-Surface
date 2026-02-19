@@ -1,9 +1,11 @@
 # Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges
 
+
 <p align="center">
   <a href="https://huggingface.co/datasets/ZDCSlab/ripd-dataset">📊 Data</a> &nbsp;•&nbsp;
-  <a href="#model">🤖 Trained Models</a> &nbsp;•&nbsp;
-  <a href="https://www.arxiv.org/pdf/2602.13576">📝 Paper</a>
+  <a href="#trained-models">🤖 Trained Models</a> &nbsp;•&nbsp;
+  <a href="https://www.arxiv.org/pdf/2602.13576">📝 Paper</a> &nbsp;•&nbsp;
+  <a href="https://github.com/ZDCSlab/Rubrics-as-an-Attack-Surface">💻 Repo</a> 
 </p>
 
 
